@@ -4,12 +4,14 @@ import {TwitterNotification} from './src/Notification/TwitterNotification';
 import {Caseking} from './src/Crawler/Caseking';
 import {AlternateDe} from './src/Crawler/AlternateDe';
 import {Evga} from './src/Crawler/Evga';
+import {NvidiaDe} from './src/Crawler/NvidiaDe';
 require('dotenv').config();
 
 const bot = new Bot(process.env.DELAY as unknown as number, [
   new Caseking(),
   new AlternateDe(),
-  new Evga()
+  new Evga(),
+  new NvidiaDe()
 ], [
   new TwitterNotification(
     process.env.TWITTER_CONSUMER_KEY as string,
