@@ -16,6 +16,7 @@
     "@types/twitter": "^1.7.0",
     "axios": "^0.20.0",
     "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
     "ts-node": "^9.0.0",
     "twitter": "^1.7.1",
