@@ -15,7 +15,7 @@ export class Bot {
   }
 
   async start() {
-    this.logger.debug(`Starting ilovertx3000 with ${this.crawler.length} crawler: ${this.crawler.map(c => c.constructor.name).join(', ')}`);
+    this.logger.info(`Starting ilovertx3000 with ${this.crawler.length} crawler: ${this.crawler.map(c => c.constructor.name).join(', ')}`);
 
     if (this.crawler.length === 0) {
       this.logger.info('Nothing to do here...');
