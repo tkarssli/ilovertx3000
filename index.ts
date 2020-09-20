@@ -2,10 +2,12 @@ import {Bot} from './src/Bot';
 import {Logger, LogLevel} from './src/Logger';
 import {TwitterNotification} from './src/Notification/TwitterNotification';
 import {Caseking} from './src/Crawler/Caseking';
+import {AlternateDe} from './src/Crawler/AlternateDe';
 require('dotenv').config();
 
 const bot = new Bot(process.env.DELAY as unknown as number, [
-  new Caseking()
+  new Caseking(),
+  new AlternateDe()
 ], [
   new TwitterNotification(
     process.env.TWITTER_CONSUMER_KEY as string,
