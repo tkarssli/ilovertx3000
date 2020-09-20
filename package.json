@@ -1,0 +1,12 @@
+{
+  "name": "ilovertx3000",
+  "version": "0.1.0",
+  "description": "Stock availability checker bot for RTX 3000 cards",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Hirczy <kevin@nehalist.io>",
+  "license": "GPL-3.0-only",
+  "private": true
+}
