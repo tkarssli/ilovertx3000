@@ -54,6 +54,7 @@ export class Bot {
               if (product.stock !== existing.stock) {
                 this.handleStockChange(product, existing);
                 existing.stock = product.stock;
+                return;
               }
             });
             resolve();

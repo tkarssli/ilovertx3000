@@ -4,6 +4,7 @@ import { DiscordNotification } from "./src/Notification/DiscordNotification";
 import { Evga } from "./src/Crawler/Evga";
 import { Nvidia } from "./src/Crawler/Nvidia";
 import { Bestbuy } from "./src/Crawler/Bestbuy";
+
 require("dotenv").config();
 
 const bot = new Bot(

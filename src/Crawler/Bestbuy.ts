@@ -30,6 +30,7 @@ export class Bestbuy implements CrawlerInterface {
 
   async acquireStock(logger: Logger) {
     const products: Product[] = [];
+    console.log("Here");
     for await (const product of this.products) {
       try {
         const response = await axios.get(product.url);
