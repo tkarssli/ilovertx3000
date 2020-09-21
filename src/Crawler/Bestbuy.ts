@@ -34,6 +34,7 @@ export class Bestbuy implements CrawlerInterface {
       try {
         const response = await axios.get(product.url);
         if (response.status !== 200) {
+          logger.warning("Bestbuy Unavailable", { status: response.status });
           continue;
         }
         const $ = cheerio.load(response.data);
@@ -45,6 +46,7 @@ export class Bestbuy implements CrawlerInterface {
         logger.error(e.message, { url: product.url });
       }
     }
+    logger.debug("Bestbuy Products:", products);
     return products;
   }
 }

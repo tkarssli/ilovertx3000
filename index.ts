@@ -22,5 +22,4 @@ const bot = new Bot(
   )
 );
 
-console.log(process.env.DELAY);
 bot.start();
