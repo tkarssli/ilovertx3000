@@ -23,4 +23,4 @@ jobs:
           host: ${{ secrets.HOST_IP }}
           username: ${{ secrets.HOST_USERNAME }}
           password: ${{ secrets.HOST_PASSWORD }}
-          script: cd ~/ilovertx3000 && docker build -t statusbot.
+          script: cd ~/ilovertx3000 && docker build -t statusbot .
