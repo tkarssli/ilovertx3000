@@ -34,7 +34,7 @@ export class Bestbuy implements CrawlerInterface {
     for await (const product of this.products) {
       try {
         const response = await axios.get(product.url);
-        console.log("Response");
+        console.log("Response", response);
         if (response.status !== 200) {
           logger.warning("Bestbuy Unavailable", { status: response.status });
           continue;
