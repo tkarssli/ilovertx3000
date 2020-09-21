@@ -31,7 +31,7 @@ export class Bot {
 
       for await (const crawler of this.crawler) {
         promises.push(
-          new Promise(async () => {
+          new Promise(async (resolve, reject) => {
             console.log("Checking: " + crawler.getRetailerName());
             const stock = await crawler.acquireStock(this.logger);
             stock.forEach((product) => {
@@ -41,6 +41,7 @@ export class Bot {
               );
               if (!existing) {
                 this.stock.push({ ...product });
+                resolve();
                 return;
               }
               if (
@@ -50,11 +51,13 @@ export class Bot {
                 this.handleStockChange(product, existing);
                 existing.stock = product.stock;
               }
+              resolve();
             });
           })
         );
       }
       await Promise.all(promises);
+      this.logger.debug("Sleeping");
       await this.sleep(this.delay);
     }
   }
