@@ -11,11 +11,11 @@ export class Bestbuy implements CrawlerInterface {
       url: "https://www.bestbuy.com/site/6429440.p",
     },
     {
-      name: "EVGA GeForce RTX 3080 XC3 ULTRA GAMING",
+      name: "EVGA GeForce RTX 3080 XC3 ULTRA",
       url: "https://www.bestbuy.com/site/6432400.p",
     },
     {
-      name: "EVGA GeForce RTX 3080 XC3 BLACK GAMING",
+      name: "EVGA GeForce RTX 3080 XC3 BLACK",
       url: "https://www.bestbuy.com/site/6432399.p",
     },
     {
