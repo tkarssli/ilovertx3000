@@ -13,6 +13,7 @@ myHeaders.append(
 );
 myHeaders.append("Accept-Encoding", "gzip, deflate, br");
 myHeaders.append("User-Agent", "PostmanRuntime/7.26.5");
+myHeaders.append("referer", "https://google.com");
 
 var requestOptions: RequestInit = {
   method: "GET",
