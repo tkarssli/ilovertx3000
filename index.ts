@@ -16,7 +16,9 @@ const bot = new Bot(
     ),
   ],
   new Logger(
-    parseInt((process.env.DEBUG as unknown) as string) === 1 ? 0 : LogLevel.Info
+    parseInt((process.env.DEBUG as unknown) as string) === 1
+      ? LogLevel.Debug
+      : LogLevel.Info
   )
 );
 

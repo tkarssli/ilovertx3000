@@ -39,6 +39,7 @@ export class Bot {
             } catch (e) {
               this.logger.debug(e);
               reject();
+              return;
             }
             stock.forEach((product) => {
               const existing = this.stock.find(
@@ -54,8 +55,8 @@ export class Bot {
                 this.handleStockChange(product, existing);
                 existing.stock = product.stock;
               }
-              resolve();
             });
+            resolve();
           })
         );
       }
