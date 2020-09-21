@@ -38,6 +38,7 @@ export class Bot {
               stock = await crawler.acquireStock(this.logger);
             } catch (e) {
               this.logger.debug(e);
+              reject();
             }
             stock.forEach((product) => {
               const existing = this.stock.find(
@@ -49,10 +50,7 @@ export class Bot {
                 resolve();
                 return;
               }
-              if (
-                product.stock !== existing.stock ||
-                product.retailer === "Bestbuy"
-              ) {
+              if (product.stock !== existing.stock) {
                 this.handleStockChange(product, existing);
                 existing.stock = product.stock;
               }
