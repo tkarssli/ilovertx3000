@@ -33,7 +33,12 @@ export class Bot {
         promises.push(
           new Promise(async (resolve, reject) => {
             console.log("Checking: " + crawler.getRetailerName());
-            const stock = await crawler.acquireStock(this.logger);
+            let stock = [] as Product[];
+            try {
+              stock = await crawler.acquireStock(this.logger);
+            } catch (e) {
+              this.logger.debug(e);
+            }
             stock.forEach((product) => {
               const existing = this.stock.find(
                 (p) =>
