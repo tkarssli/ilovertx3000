@@ -32,7 +32,7 @@ export class Bot {
       for await (const crawler of this.crawler) {
         promises.push(
           new Promise(async (resolve, reject) => {
-            console.log("Checking: " + crawler.getRetailerName());
+            this.logger.debug("Checking: " + crawler.getRetailerName());
             let stock = [] as Product[];
             try {
               stock = await crawler.acquireStock(this.logger);
