@@ -6,7 +6,7 @@ on:
 jobs:
   deploy-to-digital-ocean-droplet:
     runs-on: ubuntu-latest
-    name: Deploy Website
+    name: Bot
     steps:
       - name: Checkout master
         uses: actions/checkout@master
@@ -17,6 +17,13 @@ jobs:
           username: ${{ secrets.HOST_USERNAME }}
           password: ${{ secrets.HOST_PASSWORD }}
           script: cd ~/ilovertx3000 && git pull https://github.com/tkarssli/ilovertx3000.git
+      - name: Stop docker containers
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USERNAME }}
+          password: ${{ secrets.HOST_PASSWORD }}
+          script: cd ~/ilovertx3000  && docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
       - name: Docker Build
         uses: appleboy/ssh-action@master
         with:
@@ -24,3 +31,10 @@ jobs:
           username: ${{ secrets.HOST_USERNAME }}
           password: ${{ secrets.HOST_PASSWORD }}
           script: cd ~/ilovertx3000 && docker build -t statusbot .
+      - name: Docker Run
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USERNAME }}
+          password: ${{ secrets.HOST_PASSWORD }}
+          script: cd ~/ilovertx3000 && docker run -d statusbot
