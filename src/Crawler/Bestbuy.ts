@@ -8,19 +8,19 @@ export class Bestbuy implements CrawlerInterface {
   private products: Product[] = [
     {
       name: "nVidia GeForce RTX 3080 FE",
-      url: "bestbuy.com/site/6429440.p",
+      url: "https://bestbuy.com/site/6429440.p",
     },
     {
       name: "EVGA GeForce RTX 3080 XC3 ULTRA",
-      url: "bestbuy.com/site/6432400.p",
+      url: "https://bestbuy.com/site/6432400.p",
     },
     {
       name: "EVGA GeForce RTX 3080 XC3 BLACK",
-      url: "bestbuy.com/site/6432399.p",
+      url: "https://bestbuy.com/site/6432399.p",
     },
     {
       name: "MSI - Geforce RTX 3080 VENTUS 3X",
-      url: "bestbuy.com/site/6430175.p",
+      url: "https://bestbuy.com/site/6430175.p",
     },
   ];
 
