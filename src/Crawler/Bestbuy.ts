@@ -8,19 +8,19 @@ export class Bestbuy implements CrawlerInterface {
   private products: Product[] = [
     {
       name: "nVidia GeForce RTX 3080 FE",
-      url: "www.bestbuy.com/site/6429440.p",
+      url: "bestbuy.com/site/6429440.p",
     },
     {
       name: "EVGA GeForce RTX 3080 XC3 ULTRA",
-      url: "www.bestbuy.com/site/6432400.p",
+      url: "bestbuy.com/site/6432400.p",
     },
     {
       name: "EVGA GeForce RTX 3080 XC3 BLACK",
-      url: "www.bestbuy.com/site/6432399.p",
+      url: "bestbuy.com/site/6432399.p",
     },
     {
       name: "MSI - Geforce RTX 3080 VENTUS 3X",
-      url: "www.bestbuy.com/site/6430175.p",
+      url: "bestbuy.com/site/6430175.p",
     },
   ];
 
@@ -32,7 +32,7 @@ export class Bestbuy implements CrawlerInterface {
     const products: Product[] = [];
     for await (const product of this.products) {
       try {
-        const response = await axios.get(product.url, { timeout: 5000 });
+        const response = await axios.get(product.url);
         console.log("Response", response);
         if (response.status !== 200) {
           logger.warning("Bestbuy Unavailable", { status: response.status });
