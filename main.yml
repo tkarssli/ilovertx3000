@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy-to-digital-ocean-droplet:
+    runs-on: ubuntu-latest
+    name: Deploy Website
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@master
+      - name: Pull from GitHub
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USERNAME }}
+          password: ${{ secrets.HOST_PASSWORD }}
+          script: cd ~/ilovertx3000 && git pull https://github.com/tkarssli/ilovertx3000.git
+      - name: Docker Build
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USERNAME }}
+          password: ${{ secrets.HOST_PASSWORD }}
+          script: cd ~/ilovertx3000 && docker build -t statusbot.
